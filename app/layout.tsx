@@ -15,6 +15,9 @@ export const viewport: Viewport = {
 
 const manrope = Manrope({ subsets: ['latin'] });
 
+// When POSTGRES_URL is not set (demo mode), avoid calling DB so the app can load (e.g. Alignment Checker canvas).
+const hasDb = Boolean(process.env.POSTGRES_URL);
+
 export default function RootLayout({
   children
 }: {
@@ -29,10 +32,10 @@ export default function RootLayout({
         <SWRConfig
           value={{
             fallback: {
-              // We do NOT await here
-              // Only components that read this data will suspend
-              '/api/user': getUser(),
-              '/api/team': getTeamForUser()
+              // We do NOT await here. Only components that read this data will suspend.
+              // In demo mode (no DB), pass null so no DB is invoked.
+              '/api/user': hasDb ? getUser() : Promise.resolve(null),
+              '/api/team': hasDb ? getTeamForUser() : Promise.resolve(null)
             }
           }}
         >

@@ -5,9 +5,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-if (!process.env.POSTGRES_URL) {
-  throw new Error('POSTGRES_URL environment variable is not set');
-}
+// Demo mode: allow app to load without DB; use placeholder so module does not throw.
+// Queries will fail at runtime if POSTGRES_URL is not set and a route uses the DB.
+const connectionString =
+  process.env.POSTGRES_URL || 'postgres://localhost:5432/demo?sslmode=disable';
 
-export const client = postgres(process.env.POSTGRES_URL);
+export const client = postgres(connectionString);
 export const db = drizzle(client, { schema });

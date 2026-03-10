@@ -65,6 +65,18 @@ function UserMenu() {
             <span>Dashboard</span>
           </Link>
         </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer">
+          <Link href="/alignment-checker-canvas" className="flex w-full items-center">
+            <CircleIcon className="mr-2 h-4 w-4" />
+            <span>Alignment Checker Canvas</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer">
+          <Link href="/alignment-checker-icicle" className="flex w-full items-center">
+            <CircleIcon className="mr-2 h-4 w-4" />
+            <span>Alignment Checker (Monthly Follow-up)</span>
+          </Link>
+        </DropdownMenuItem>
         <form action={handleSignOut} className="w-full">
           <button type="submit" className="flex w-full">
             <DropdownMenuItem className="w-full flex-1 cursor-pointer">

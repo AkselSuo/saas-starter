@@ -31,6 +31,7 @@ export interface IcicleLayoutOptions {
 const DEFAULT_OPTS: Omit<Required<IcicleLayoutOptions>, 'maxDepth' | 'offsetX' | 'offsetY'> = {
   padding: 4,
   verticalGap: 4,
+  minWidthByDepth: () => 0,
 };
 
 export type LaidOutNode<T> = HierarchyNode<T> & { x0: number; x1: number; y0: number; y1: number };

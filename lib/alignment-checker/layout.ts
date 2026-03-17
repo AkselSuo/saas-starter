@@ -3,14 +3,14 @@ import type { Node, Edge } from '@xyflow/react';
 const elkOptionsDefault = {
   'elk.algorithm': 'layered',
   'elk.direction': 'DOWN',
-  'elk.layered.spacing.nodeNodeBetweenLayers': 60,
-  'elk.spacing.nodeNode': 40,
+  'elk.layered.spacing.nodeNodeBetweenLayers': '60',
+  'elk.spacing.nodeNode': '40',
 };
 
 const elkOptionsCompact = {
   ...elkOptionsDefault,
-  'elk.layered.spacing.nodeNodeBetweenLayers': 32,
-  'elk.spacing.nodeNode': 22,
+  'elk.layered.spacing.nodeNodeBetweenLayers': '32',
+  'elk.spacing.nodeNode': '22',
 };
 
 export interface ElkNodeInput {
